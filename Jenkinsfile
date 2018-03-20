@@ -27,7 +27,7 @@ pipeline {
               fi
               '''
               def r = readFile('status').trim()
-              return r
+              exit r.toString()
             }
           }
           //  We are on the dev branch...
