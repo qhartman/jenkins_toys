@@ -31,9 +31,9 @@ pipeline {
             return r
           }
           //  We are on the dev branch...
-          branch 'development'
+        //  branch 'master'
           // The last build worked...
-          expression { return currentBuild.getPreviousBuild().result == 'SUCCESS';}
+        //  expression { return currentBuild.getPreviousBuild().result == 'SUCCESS';}
         }
       }
       steps {
