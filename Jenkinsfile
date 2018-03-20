@@ -28,7 +28,7 @@ pipeline {
               '''
             }
             def r = readFile('status').trim()
-            return r.toString()
+            return r
           }
           //  We are on the dev branch...
           branch 'development'
