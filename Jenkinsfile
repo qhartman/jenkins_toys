@@ -26,9 +26,9 @@ pipeline {
               echo 0 > status
               fi
               '''
-              def r = readFile('status').trim()
-              return r.toString()
             }
+            def r = readFile('status').trim()
+            return r.toString()
           }
           //  We are on the dev branch...
           branch 'development'
