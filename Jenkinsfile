@@ -16,9 +16,15 @@ pipeline {
           expression {
             script {
               sh '''
-                set +e
-                git log -1 --pretty=%B | grep -q ^Jenkins-Commit; echo $? > status
-                set -e
+              set +e
+              return=$(git log -1 --pretty=%B | grep -q ^Jenkins-Commit; echo $?)
+              set -e
+              if [[ $return -eq 1 ]];
+              then
+              echo 0 > status
+              else
+              echo 1 > status
+              fi
               '''
               def r = readFile('status').trim()
               return r
