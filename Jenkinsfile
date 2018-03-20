@@ -21,9 +21,9 @@ pipeline {
               set -e
               if [[ $return -eq 1 ]];
               then
-              echo 1 > status
-              else
               echo 0 > status
+              else
+              echo 1 > status
               fi
               '''
             }
