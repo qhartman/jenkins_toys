@@ -19,7 +19,7 @@ pipeline {
               set +e
               return=$(git log -1 --pretty=%B | grep -q ^Jenkins-Commit; echo $?)
               set -e
-              if [[ $return -eq 1 ]];
+              if [[ $return -eq 0 ]];
               then
               echo 0 > status
               else
