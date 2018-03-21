@@ -38,6 +38,7 @@ pipeline {
         }
       }
       steps {
+        sleep 10
         sh '''
           echo "a loop" >> foo
           git commit foo -m "Jenkins-Commit: set build to $NEW_BUILD"
