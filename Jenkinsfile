@@ -17,13 +17,14 @@ pipeline {
             script {
               sh '''
               set +e
+              rm -f status
               return=$(git log -1 --pretty=%B | grep -q ^Jenkins-Commit; echo $?)
               set -e
               if [[ $return -eq 0 ]];
               then
               echo True > status
               else
-              echo False > status
+              touch status
               fi
               '''
             }
