@@ -20,7 +20,7 @@ pipeline {
               rm -f status
               return=$(git log -1 --pretty=%B | grep -q ^Jenkins-Commit; echo $?)
               set -e
-              if [[ $return -eq 0 ]];
+              if [[ $return -eq 1 ]];
               then
               echo True > status
               else
