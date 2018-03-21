@@ -22,14 +22,13 @@ pipeline {
               set -e
               if [[ $return -eq 1 ]];
               then
-              echo True > status
+              echo "Skip-This-Build" > status
               else
               touch status
               fi
               '''
             }
             def r = readFile('status').trim()
-            println r
             return r
           }
           //  We are on the dev branch...
