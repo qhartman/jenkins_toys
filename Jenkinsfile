@@ -12,7 +12,7 @@ pipeline {
     stage('Increment Build Number'){
       when {
         allOf {
-          // The last commit was not Jenkins...
+          // Was the last commit Jenkins?
           expression {
             script {
               sh '''
@@ -21,9 +21,9 @@ pipeline {
               set -e
               if [[ $return -eq 0 ]];
               then
-              echo 0 > status
+              echo True > status
               else
-              echo 1 > status
+              echo False > status
               fi
               '''
             }
