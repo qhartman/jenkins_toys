@@ -28,6 +28,7 @@ pipeline {
               '''
             }
             def r = readFile('status').trim()
+            println r
             return r
           }
           //  We are on the dev branch...
